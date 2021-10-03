@@ -1,0 +1,86 @@
+
+int** spirallyTraverse(int **Matrix, int R , int C)
+{
+int i , j , k , l;
+int **temp;
+
+temp=new int*[R];
+
+for(i=0;i<R;i++){
+temp[i]=new int[C];
+}
+
+top=0;   
+left=0;   
+Right=C-1;  
+bottom=R-1;   
+
+int count;
+
+int m=0;
+int n=0;
+
+do{
+
+if(left<=right){
+    
+for(count=top;count<=Right;count++){
+    temp[m][n]=Matrix[top][count];
+    n++;
+    if(n==C-1){  // checking the condition to start next row of temp array if n becomes                      equal to number of columns
+    n=0;
+    m++;
+    }
+}
+ top++;
+}
+
+
+if(top <=bottom){
+for(count=top+1;count<=bottom;count++){
+      temp[m][n]=Matrix[count][Right];
+      n++;
+      if(n==C-1){
+      n=0;
+      m++;
+      }
+}
+Right--;
+}
+
+if(left<=right){
+
+for(count=Right;count>=left;count--){
+      temp[m][n]=Matrix[bottom][count];
+      if(n==C-1){   
+      n=0;
+      m++;
+      }
+}
+
+bottom--;
+
+}
+
+if(top<=bottom){
+
+for(count=bottom;count>=top;count--)
+{
+      temp[m][n]=Matrix[count][left];
+      if(n==C-1){
+       n=0;
+       m++;
+      }
+}
+left++;
+
+}
+
+
+if(left>right || top>bottom)
+{
+   break;
+
+}
+
+}while(1)
