@@ -1,3 +1,5 @@
+# include<iostream>
+using namespace std;
 
 int** spirallyTraverse(int **Matrix, int R , int C)
 {

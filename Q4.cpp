@@ -1,3 +1,7 @@
+# include<iostream>
+using namespace std;
+
+
 int* candyStore(int candies[] , int size , int K){
 
 int *temp=new int[2];    //dynamic memory allocation for storing minimum and maximum money candies
