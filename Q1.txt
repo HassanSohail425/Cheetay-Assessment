@@ -1,7 +1,7 @@
 
 int** spirallyTraverse(int **Matrix, int R , int C)
 {
-int i , j , k , l;
+int i , top ,left ,right , bottom ,count ,m ,n ;
 int **temp;
 
 temp=new int*[R];
@@ -12,22 +12,20 @@ temp[i]=new int[C];
 
 top=0;   
 left=0;   
-Right=C-1;  
+right=C-1;  
 bottom=R-1;   
 
-int count;
-
-int m=0;
-int n=0;
+m=0;
+n=0;
 
 do{
 
 if(left<=right){
     
-for(count=top;count<=Right;count++){
+for(count=top;count<=right;count++){
     temp[m][n]=Matrix[top][count];
     n++;
-    if(n==C-1){  // checking the condition to start next row of temp array if n becomes                      equal to number of columns
+    if(n==C-1){  // checking the condition to start next row of temp array if n becomes equal to number of columns
     n=0;
     m++;
     }
@@ -38,19 +36,19 @@ for(count=top;count<=Right;count++){
 
 if(top <=bottom){
 for(count=top+1;count<=bottom;count++){
-      temp[m][n]=Matrix[count][Right];
+      temp[m][n]=Matrix[count][right];
       n++;
       if(n==C-1){
       n=0;
       m++;
       }
 }
-Right--;
+right--;
 }
 
 if(left<=right){
 
-for(count=Right;count>=left;count--){
+for(count=right;count>=left;count--){
       temp[m][n]=Matrix[bottom][count];
       if(n==C-1){   
       n=0;
@@ -84,3 +82,8 @@ if(left>right || top>bottom)
 }
 
 }while(1)
+
+
+return temp;
+
+}// End Function
